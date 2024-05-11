@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScribbleSprinter", "ScribbleSprinter\ScribbleSprinter\ScribbleSprinter.csproj", "{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScribbleSprinter.Client", "ScribbleSprinter\ScribbleSprinter.Client\ScribbleSprinter.Client.csproj", "{8F1900D8-788C-4DDC-B518-396E99CB976A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F1900D8-788C-4DDC-B518-396E99CB976A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1900D8-788C-4DDC-B518-396E99CB976A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1900D8-788C-4DDC-B518-396E99CB976A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1900D8-788C-4DDC-B518-396E99CB976A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEA727A4-3596-42DB-9C0B-65E582ECEECD}
+	EndGlobalSection
+EndGlobal

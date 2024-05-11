@@ -1,0 +1,7 @@
+﻿@page "/"
+@rendermode InteractiveAuto
+@inherits ComponentViewModelBase<ScribbleViewModel>
+<PageTitle>Scribble Sprinter</PageTitle>
+<MudProgressLinear Color="Color.Secondary" Value="@Vm.Value" Class="my-7" Min="0" Max="@Vm.TimeLimit" />
+<MudTextField T="string" Label="Outlined" Variant="Variant.Outlined" @bind-Value="@Vm.Text" Lines="10" />
+<MudProgressLinear Color="Color.Secondary" Value="@Vm.Value" Class="my-7" Min="0" Max="Vm.TimeLimit" />
