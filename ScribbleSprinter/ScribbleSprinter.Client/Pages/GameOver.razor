@@ -4,12 +4,7 @@
         <h1 style="color:red">YOU DIED</h1>
         <p style="color:red">Game Over</p>
         <MudButton Color="Color.Primary" OnClick="OnReset">Reset</MudButton>
-        <p style="color:white">
-            @foreach (var item in SavedTexts ?? [])
-            {
-                <span>@item</span>
-            }
-        </p>
+        <p style="color:white">@SavedTexts</p>
     </MudStack>
 
 </MudContainer>
@@ -26,5 +21,5 @@
     public Action OnReset { get; set; } = () => { };
 
     [Parameter]
-    public IEnumerable<string>? SavedTexts { get; set; }
+    public string? SavedTexts { get; set; }
 }

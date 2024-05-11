@@ -1,15 +1,9 @@
 ﻿@inject IJSRuntime runtime
 <div class="fireworks ease-in" style="position:fixed; width:100%; height:100%; top: 0px; left: 0px; background-color:black">
-
 </div>
 <MudContainer Class="d-flex align-center justify-center mud-width-full" Style="height:100vh;">
     <MudStack Class="align-center">
-        <p>
-            @foreach (var item in SavedTexts ?? [])
-            {
-                <span>@item</span>
-            }
-        </p>
+        <p>@SavedTexts</p>
         <MudButton Color="Color.Primary" OnClick="OnContinue">Continue Typing</MudButton>
     </MudStack>
 
@@ -19,7 +13,7 @@
     public EventCallback OnContinue { get; set; }
 
     [Parameter]
-    public IEnumerable<string>? SavedTexts { get; set; }
+    public string? SavedTexts { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {

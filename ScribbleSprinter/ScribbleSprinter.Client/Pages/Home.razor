@@ -1,14 +1,22 @@
 ﻿@page "/"
-
+@inject NavigationManager nav
 <MudContainer Class="d-flex align-center justify-center mud-width-full ease-in" Style="height:100vh;">
     <MudStack Class="align-center">
        <MudText Typo="Typo.h1">Scribble Sprinter</MudText>
        <MudForm>
-
+           <MudTextField @bind-Value="SprintSeconds" Label="Sprint (Seconds)"></MudTextField>
+           <MudTextField @bind-Value="TypingSpeedMilliseconds" Label="Required Typing Speed (Milliseconds)"></MudTextField>
+            <MudButton Color="Color.Primary" OnClick="OnStart">Start</MudButton>
        </MudForm>
     </MudStack>
 
 </MudContainer>
 @code {
+    public int SprintSeconds { get; set; } = 60;
+    public int TypingSpeedMilliseconds { get; set; } = 1000;
 
+    public void OnStart()
+    {
+        nav.NavigateTo($"/scribble?SprintSeconds={SprintSeconds}&TypingSpeed={TypingSpeedMilliseconds}");
+    }
 }

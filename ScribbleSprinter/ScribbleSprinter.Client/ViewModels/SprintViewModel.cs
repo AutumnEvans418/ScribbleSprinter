@@ -3,7 +3,10 @@
     public class SprintViewModel : ViewModelBase
     {
         public int Value { get; set; }
-        public int TimeLimit = 5;
+        public int TimeLimit { get; set; } = 5;
+        public int TypingSpeed { get; set; } = 1000;
+
+
         private string text = "";
         System.Timers.Timer sprintTimer { get; } = new();
         System.Timers.Timer typingTimer { get; } = new();
@@ -37,7 +40,7 @@
         {
             if (firstRender)
             {
-                typingTimer.Interval = 1000;
+                typingTimer.Interval = TypingSpeed;
                 typingTimer.Elapsed += (s,e) => InvokeAsync(TypingTimer_Elapsed);
 
                 sprintTimer.AutoReset = true;

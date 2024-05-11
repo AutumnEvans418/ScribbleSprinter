@@ -9,7 +9,7 @@ namespace ScribbleSprinter.Client.ViewModels
 
     public class ScribbleViewModel : ViewModelBase
     {
-        public List<string> SavedTexts { get; } = [];
+        public string SavedTexts { get; set; } = string.Empty;
 
         public States GameState { get; private set; }
 
