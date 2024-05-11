@@ -1,0 +1,19 @@
+﻿@page "/scribble"
+@rendermode InteractiveAuto
+@inherits ComponentViewModelBase<ScribbleViewModel>
+<PageTitle>Scribble Sprinter</PageTitle>
+
+@if (Vm.GameState == States.Sprint)
+{
+    <Sprint OnGameOver="() => Vm.SetState(States.GameOver)"
+            OnSprintCompleted="s => {Vm.SavedTexts.Add(s); Vm.SetState(States.SprintCompleted); }"
+            SavedTexts="Vm.SavedTexts"></Sprint>
+}
+else if (Vm.GameState == States.GameOver)
+{
+    <GameOver OnReset="() => Vm.SetState(States.Sprint)" SavedTexts="Vm.SavedTexts"></GameOver>
+}
+else if (Vm.GameState == States.SprintCompleted)
+{
+    <SprintCompleted OnContinue="() => Vm.SetState(States.Sprint)" SavedTexts="Vm.SavedTexts"></SprintCompleted>
+}

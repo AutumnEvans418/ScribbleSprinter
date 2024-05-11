@@ -1,0 +1,27 @@
+﻿@inherits ComponentViewModelBase<SprintViewModel>
+<p>
+    @foreach (var item in SavedTexts ?? [])
+    {
+        <span>@item</span>
+    }
+</p>
+<MudProgressLinear Color="Color.Secondary" Value="@Vm.Value" Class="my-7" Min="0" Max="@Vm.TimeLimit" />
+<MudTextField T="string" Label="Start typing to start..." Variant="Variant.Outlined" @bind-Value="@Vm.Text" Lines="10" Immediate=true AutoFocus=true />
+
+@code {
+    [Parameter]
+    public Action<string>? OnSprintCompleted { get; set; }
+
+    [Parameter]
+    public Action? OnGameOver { get; set; }
+
+    [Parameter]
+    public IEnumerable<string>? SavedTexts { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Vm.OnSprintCompleted = OnSprintCompleted;
+        Vm.OnGameOver = OnGameOver;
+        base.OnInitialized();
+    }
+}

@@ -27,3 +27,23 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+@font-face {
+    font-family: 'DarkSouls';
+    src: url('fonts/OptimusPrinceps.ttf') format('truetype');
+}
+
+.ease-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

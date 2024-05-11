@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScribbleSprinter", "ScribbleSprinter\ScribbleSprinter\ScribbleSprinter.csproj", "{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScribbleSprinter", "ScribbleSprinter\ScribbleSprinter\ScribbleSprinter.csproj", "{696CC09C-E7B2-46A6-A0B1-EE8CBCE9C53D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScribbleSprinter.Client", "ScribbleSprinter\ScribbleSprinter.Client\ScribbleSprinter.Client.csproj", "{8F1900D8-788C-4DDC-B518-396E99CB976A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScribbleSprinter.Client", "ScribbleSprinter\ScribbleSprinter.Client\ScribbleSprinter.Client.csproj", "{8F1900D8-788C-4DDC-B518-396E99CB976A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

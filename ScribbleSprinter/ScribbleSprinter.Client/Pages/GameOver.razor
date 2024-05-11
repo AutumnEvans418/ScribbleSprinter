@@ -1,0 +1,30 @@
+﻿<MudContainer Class="d-flex align-center justify-center mud-width-full ease-in game-over fireworks" 
+    Style="height:100vh;background-color:black">
+    <MudStack Class="align-center">
+        <h1 style="color:red">YOU DIED</h1>
+        <p style="color:red">Game Over</p>
+        <MudButton Color="Color.Primary" OnClick="OnReset">Reset</MudButton>
+        <p style="color:white">
+            @foreach (var item in SavedTexts ?? [])
+            {
+                <span>@item</span>
+            }
+        </p>
+    </MudStack>
+
+</MudContainer>
+
+<style>
+    .game-over {
+        font-family: DarkSouls;
+    }
+  }
+</style>
+
+@code {
+    [Parameter]
+    public Action OnReset { get; set; } = () => { };
+
+    [Parameter]
+    public IEnumerable<string>? SavedTexts { get; set; }
+}
