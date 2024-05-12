@@ -1,9 +1,9 @@
 ﻿@inject IJSRuntime runtime
-<div class="fireworks ease-in" style="position:fixed; width:100%; height:100%; top: 0px; left: 0px; background-color:black">
+<div class="fireworks ease-in" style="position:fixed; width:100%; height:100%; top: 0px; left: 0px; background-color:black; z-index: -1">
 </div>
 <MudContainer Class="d-flex align-center justify-center mud-width-full" Style="height:100vh;">
     <MudStack Class="align-center">
-        <p>@SavedTexts</p>
+        <p style="color:white">@SavedTexts</p>
         <MudButton Color="Color.Primary" OnClick="OnContinue">Continue Typing</MudButton>
     </MudStack>
 

@@ -1,7 +1,9 @@
 ﻿@inherits ComponentViewModelBase<SprintViewModel>
-<p>@SavedTexts</p>
-<MudProgressLinear Color="Color.Secondary" Value="@Vm.Value" Class="my-7" Min="0" Max="@Vm.TimeLimit" />
-<MudTextField T="string" Label="Start typing to start..." Variant="Variant.Outlined" @bind-Value="@Vm.Text" Lines="10" Immediate=true AutoFocus=true />
+<MudContainer>
+    <p>@SavedTexts</p>
+    <MudProgressLinear Color="Color.Secondary" Value="@Vm.Value" Class="my-7" Min="0" Max="@Vm.TimeLimit" />
+    <MudTextField T="string" Label="Start typing to start..." Variant="Variant.Outlined" @bind-Value="@Vm.Text" Lines="10" Immediate=true AutoFocus=true />
+</MudContainer>
 
 @code {
     [Parameter]
