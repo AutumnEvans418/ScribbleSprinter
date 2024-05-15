@@ -3,17 +3,33 @@
 <MudContainer Class="d-flex align-center justify-center mud-width-full ease-in" Style="height:100vh;">
     <MudStack Class="align-center">
        <MudText Typo="Typo.h1">Scribble Sprinter</MudText>
-       <MudForm>
-           <MudTextField @bind-Value="SprintSeconds" Label="Sprint (Seconds)"></MudTextField>
-           <MudTextField @bind-Value="TypingSpeedMilliseconds" Label="Required Typing Speed (Milliseconds)"></MudTextField>
-            <MudButton Color="Color.Primary" OnClick="OnStart">Start</MudButton>
+       <MudText Typo="Typo.h4">Write. Don't Think.</MudText>
+        <MudText Typo="Typo.body1">Do not stop. Write as if your work will be deleted if you stop.</MudText>
+        <MudText Typo="Typo.body1">Hint: It will.</MudText>
+       <MudForm Style="width:100%">
+           <MudSelect @bind-Value="SprintSeconds" Label="Sprint Length" FullWidth=true>
+                <MudSelectItem Value="10">10 Seconds</MudSelectItem>
+                <MudSelectItem Value="30">30 Seconds</MudSelectItem>
+                <MudSelectItem Value="60">60 Seconds</MudSelectItem>
+                <MudSelectItem Value="90">90 Seconds</MudSelectItem>
+                <MudSelectItem Value="120">120 Seconds</MudSelectItem>
+           </MudSelect>
+           <MudSelect Label="Typing Speed" @bind-Value="TypingSpeedMilliseconds" FullWidth=true>
+                <MudSelectItem Value="10000">Only Thoughts. No Write.</MudSelectItem>
+                <MudSelectItem Value="5000">Super Easy</MudSelectItem>
+                <MudSelectItem Value="2000">Easy</MudSelectItem>
+                <MudSelectItem Value="1000">Medium</MudSelectItem>
+                <MudSelectItem Value="500">Hard</MudSelectItem>
+                <MudSelectItem Value="250">GOD</MudSelectItem>
+           </MudSelect>
+            <MudButton Class="mt-2" Variant="Variant.Filled" Color="Color.Primary" OnClick="OnStart">Start</MudButton>
        </MudForm>
     </MudStack>
 
 </MudContainer>
 @code {
-    public int SprintSeconds { get; set; } = 60;
-    public int TypingSpeedMilliseconds { get; set; } = 1000;
+    public int SprintSeconds { get; set; } = 30;
+    public int TypingSpeedMilliseconds { get; set; } = 2000;
 
     public void OnStart()
     {

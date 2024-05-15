@@ -1,15 +1,15 @@
 ﻿@page "/scribble"
-@rendermode InteractiveAuto
 @inherits ComponentViewModelBase<ScribbleViewModel>
 <PageTitle>Scribble Sprinter</PageTitle>
 
 @if (Vm.GameState == States.Sprint)
 {
     <Sprint OnGameOver="() => Vm.SetState(States.GameOver)"
-            OnSprintCompleted="s => {Vm.SavedTexts += s; Vm.SetState(States.SprintCompleted); }"
+            OnSprintCompleted="Vm.SprintCompleted"
             SavedTexts="@Vm.SavedTexts"
             SprintSeconds="@SprintSeconds"
-            TypingSpeed="@TypingSpeed"></Sprint>
+            TypingSpeed="@TypingSpeed"
+            OnClear="Vm.Clear"></Sprint>
 }
 else if (Vm.GameState == States.GameOver)
 {

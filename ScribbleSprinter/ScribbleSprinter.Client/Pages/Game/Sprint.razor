@@ -1,13 +1,33 @@
-﻿@inherits ComponentViewModelBase<SprintViewModel>
-<MudContainer>
-    <p>@SavedTexts</p>
-    <MudProgressLinear Color="Color.Secondary" Value="@Vm.Value" Class="my-7" Min="0" Max="@Vm.TimeLimit" />
-    <MudTextField T="string" Label="Start typing to start..." Variant="Variant.Outlined" @bind-Value="@Vm.Text" Lines="10" Immediate=true AutoFocus=true />
+﻿@inject IJSRuntime runtime
+@inherits ComponentViewModelBase<SprintViewModel>
+<MudContainer Class="mt-4">
+    @if (string.IsNullOrWhiteSpace(SavedTexts))
+    {
+        <p>No Scribbles Completed. Type without stopping till the sprint is completed.</p>
+    }
+    else
+    {
+        <p>@SavedTexts</p>
+        <MudStack Row=true>
+
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Rounded.Clear" OnClick="OnClear">Clear Saved Scribbles</MudButton>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Rounded.ContentCopy" OnClick="@(() => runtime.InvokeVoidAsync("navigator.clipboard.writeText", SavedTexts))">Copy to Clipboard</MudButton>
+
+        </MudStack>
+    }
+    <MudStack Row=true AlignItems="AlignItems.Center">
+        <MudText>Sprint</MudText>
+        <MudProgressLinear Color="Color.Success" Value="@Vm.Value" Class="my-7" Min="0" Max="@Vm.TimeLimit" />
+    </MudStack>
+    <MudTextField T="string" Label="Type to start..." Variant="Variant.Outlined" @bind-Value="@Vm.Text" Lines="10" Immediate=true AutoFocus=true />
 </MudContainer>
 
 @code {
     [Parameter]
-    public Action<string>? OnSprintCompleted { get; set; }
+    public EventCallback<string> OnSprintCompleted { get; set; }
+
+    [Parameter]
+    public EventCallback OnClear { get; set; }
 
     [Parameter]
     public Action? OnGameOver { get; set; }

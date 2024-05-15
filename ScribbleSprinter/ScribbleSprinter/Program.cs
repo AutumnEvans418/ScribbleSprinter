@@ -1,3 +1,4 @@
+using Blazored.LocalStorage;
 using MudBlazor.Services;
 using ScribbleSprinter.Client.ViewModels;
 using ScribbleSprinter.Components;
@@ -9,7 +10,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 builder.Services.AddMudServices();
-
+builder.Services.AddBlazoredLocalStorage();
 var types = typeof(ViewModelBase).Assembly.GetTypes().Where(t => t.IsAssignableTo(typeof(ViewModelBase)));
 
 foreach (var type in types)

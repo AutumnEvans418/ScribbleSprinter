@@ -1,4 +1,7 @@
-﻿namespace ScribbleSprinter.Client.ViewModels
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components;
+
+namespace ScribbleSprinter.Client.ViewModels
 {
     public class SprintViewModel : ViewModelBase
     {
@@ -6,12 +9,12 @@
         public int TimeLimit { get; set; } = 5;
         public int TypingSpeed { get; set; } = 1000;
 
-
         private string text = "";
+
         System.Timers.Timer sprintTimer { get; } = new();
         System.Timers.Timer typingTimer { get; } = new();
 
-        public Action<string>? OnSprintCompleted { get; set; }
+        public EventCallback<string> OnSprintCompleted { get; set; }
         public Action? OnGameOver { get; set; }
         public string Text
         {
@@ -50,17 +53,17 @@
             return base.OnAfterRenderAsync(firstRender);
         }
 
-        public Task Countdown()
+        public async Task Countdown()
         {
             Value++;
             if (Value >= TimeLimit)
             {
                 typingTimer.Stop();
                 sprintTimer.Stop();
-                OnSprintCompleted?.Invoke(Text);
+               
+                await OnSprintCompleted.InvokeAsync(Text);
             }
             StateHasChanged();
-            return Task.CompletedTask;
         }
 
         private Task TypingTimer_Elapsed()

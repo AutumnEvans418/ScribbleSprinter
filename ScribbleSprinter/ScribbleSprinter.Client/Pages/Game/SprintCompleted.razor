@@ -3,8 +3,13 @@
 </div>
 <MudContainer Class="d-flex align-center justify-center mud-width-full" Style="height:100vh;">
     <MudStack Class="align-center">
+        <MudText Typo="Typo.h3" Style="color:white">YOU DID IT!!</MudText>
+        <MudText Typo="Typo.body1" Style="color:white">Gaze upon your thoughtless creation:</MudText>
         <p style="color:white">@SavedTexts</p>
-        <MudButton Color="Color.Primary" OnClick="OnContinue">Continue Typing</MudButton>
+        <MudStack Row=true>
+            <MudButton Color="Color.Primary" OnClick="OnContinue" Variant="Variant.Filled">Continue Typing</MudButton>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Rounded.ContentCopy" OnClick="@(() => runtime.InvokeVoidAsync("navigator.clipboard.writeText", SavedTexts))">Copy to Clipboard</MudButton>
+        </MudStack>
     </MudStack>
 
 </MudContainer>

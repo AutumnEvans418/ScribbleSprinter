@@ -1,10 +1,19 @@
-﻿<MudContainer Class="d-flex align-center justify-center mud-width-full ease-in game-over fireworks" 
+﻿@inject IJSRuntime runtime
+<MudContainer Class="d-flex align-center justify-center mud-width-full ease-in game-over fireworks" 
     Style="height:100vh;background-color:black">
     <MudStack Class="align-center">
         <h1 style="color:red">YOU DIED</h1>
         <p style="color:red">Game Over</p>
-        <MudButton Color="Color.Primary" OnClick="OnReset">Reset</MudButton>
-        <p style="color:white">@SavedTexts</p>
+        @if (string.IsNullOrWhiteSpace(SavedTexts))
+        {
+            <p style="color: white">No Scribbles Completed.</p>
+        }
+        <p style="color:white; overflow-wrap:break-word">@SavedTexts</p>
+        <MudStack Row=true>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="OnReset">Try Again</MudButton>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" StartIcon="@Icons.Material.Rounded.ContentCopy" OnClick="@(() => runtime.InvokeVoidAsync("navigator.clipboard.writeText", SavedTexts))">Copy to Clipboard</MudButton>
+
+        </MudStack>
     </MudStack>
 
 </MudContainer>
